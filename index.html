@@ -89,7 +89,19 @@
 			</div>
 		</div>
 		<p class="footer--bar">Lorem © 2019</p>
-	</footer>	
+	</footer>
+
+	<script>
+		 const hamb = document.querySelector('.menu--nav');
+		 const list = hamb.firstElementChild.classList;
+		 hamb.addEventListener('click', (e) => {
+		 	if ( e.target !== e.currentTarget ) return
+		 	if ( list.contains('active') )
+		 		list.remove('active');
+		 	else
+		 		list.add('active');
+		 });
+	</script>
 
 </body>
 </html>
