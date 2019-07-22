@@ -17,7 +17,7 @@
 	--font-size-s: 1rem;
 }
 
-@media (max-width: 533px){
+@media (max-width: 768px){
 	:root {
 		font-size: 14px;
 	}
@@ -61,6 +61,7 @@ body {
 
 .menu {
 	padding: 1.24rem 0;
+	background: #f9f9f9;
 }
 
 .menu.fixed {
@@ -85,14 +86,11 @@ body {
 .menu .menu--items {
 	display: flex;
 	justify-content: flex-end;
+	align-content: center;
 }
 
 .menu .menu--item {
 	margin: 0 26px;
-}
-
-.menu .menu--item:last-child {
-	margin-right: 0;
 }
 
 .menu .menu--item a {
@@ -101,24 +99,44 @@ body {
 	color: var(--color-secondary);
 	font-size: .9rem;
 	text-transform: uppercase;
-	letter-spacing: .02rem;
+	letter-spacing: .05rem;
+	font-weight: 600;
 }
 
 .menu .menu--item a:hover {
-	border-bottom: 3px solid var(--color-contrast);
 	color: var(--color-main);
 }
 
-@media (max-width: 533px){
-	.menu .menu--items {
-		justify-content: flex-start;
+.menu .menu--item a:hover::after {
+	content: '';
+	width: 14px;
+	height: 3px;
+	background: var(--color-contrast);
+	display: block;
+	margin: 6px 0 0 1px;
+	position: absolute;
+	animation: animeWidth .4s ease-out;
+}
+
+@keyframes animeWidth{
+	from {
+		width: 0;
 	}
+	to {
+		width: 14px;
+	}
+}
+
+@media (max-width: 533px){
+
 	.menu .menu--item {
+		display: inline-block;
 		margin: 0 1rem;
 	}
-	.menu .menu--item:last-child {
-		margin-right: 0;
-	}
+}
+
+.menu .menu--item:last-child {
+	margin-right: 0;
 }
 
 /* HERO */
@@ -272,25 +290,25 @@ body {
 
 	.cards .grid {
 		grid-template-columns: 1fr;
-	}
-
-	.cards--img {
-		justify-self: start; 
-	}
-
-	.cards--img img {
-		width: 80%;
+		justify-content: center;
 	}
 
 	.cards--description {
 		margin-top: 3rem;
+		justify-self: center;
 	}
 
 	.cards--description .people {
-		text-align: center;
-		transform: translate3d(0, -440px, 0);
+		/*text-align: right;*/
+		transform: translate3d(0, -500px, 0);
+	}
+
+	.cards--description .btn {
+		display: block;
+		margin-left: auto;
 	}
 }
+
 
 /* FOOTER */
 
